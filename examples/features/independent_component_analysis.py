@@ -161,7 +161,7 @@ zs = torch.mm(S, zm.t()).t()
 
 # Print average of zs to checked
 # centeredness
-print("Average of zs : {}".format(torch.mean(zs, dim=0)))
+print(("Average of zs : {}".format(torch.mean(zs, dim=0))))
 
 # Compute the covariance matrix of zs
 cov_zsT = torch.mm(zs.t(), zs) / total_points

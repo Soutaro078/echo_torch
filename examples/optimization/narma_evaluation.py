@@ -125,7 +125,7 @@ def evaluation_function(parameters, datasets, n_samples=5):
         # Get the first sample in test set,
         # and transform it to Variable.
         dataiter = iter(testloader)
-        test_u, test_y = dataiter.next()
+        test_u, test_y = next(dataiter)
         test_u, test_y = Variable(test_u), Variable(test_y)
         if use_cuda: test_u, test_y = test_u.cuda(), test_y.cuda()
 

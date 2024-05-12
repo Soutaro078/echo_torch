@@ -27,7 +27,7 @@ import echotorch.utils.matrix_generation as mg
 import argparse
 import echotorch.utils
 import echotorch.datasets as etds
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 from echotorch.datasets import DatasetComposer
 from torch.utils.data.dataloader import DataLoader
 import matplotlib.pyplot as plt
@@ -79,7 +79,7 @@ morphing_n_top_plots = 8
 alpha = 1000
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog="subspace_demo", description=u"Fig. 1 BC subspace first demo")
+parser = argparse.ArgumentParser(prog="subspace_demo", description="Fig. 1 BC subspace first demo")
 parser.add_argument("--w", type=str, default="", required=False)
 parser.add_argument("--w-name", type=str, default="", required=False)
 parser.add_argument("--win", type=str, default="", required=False)
@@ -243,7 +243,7 @@ predY = torch.mm(conceptor_net.cell.w, Xold_collector.t()).t()
 
 # Compute NRMSE
 training_NRMSE = echotorch.utils.nrmse(predY, Y_collector)
-print("Training NRMSE : {}".format(training_NRMSE))
+print(("Training NRMSE : {}".format(training_NRMSE)))
 
 # Train conceptors (Compute C from R)
 conceptors.finalize()
@@ -337,7 +337,7 @@ plt.show()
 # More remove first 20, and the last was which are
 # not accurate enough.
 interpolation_steps = int(1.0 / interpolation_increment)
-x_crossing_discounts = x_crossing_discounts[range(interpolation_steps - 1, interpolation_length, interpolation_steps)]
+x_crossing_discounts = x_crossing_discounts[list(range(interpolation_steps - 1, interpolation_length, interpolation_steps))]
 x_crossing_discounts *= interpolation_increment
 x_crossing_discounts[:20] = np.ones(20) * x_crossing_discounts[19]
 x_crossing_discounts[-1] = x_crossing_discounts[-2]

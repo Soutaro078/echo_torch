@@ -44,7 +44,7 @@ class MatrixGenerator(object):
         self._parameters['scale'] = 1.0
 
         # Set parameter values given
-        for key, value in kwargs.items():
+        for key, value in list(kwargs.items()):
             self._parameters[key] = value
         # end for
     # end __init__
@@ -142,7 +142,7 @@ class MatrixGenerator(object):
         Set parameters
         :param args: Parameters as dict
         """
-        for key, value in args.items():
+        for key, value in list(args.items()):
             self.set_parameter(key, value)
         # end for
     # end _set_parameters

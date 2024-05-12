@@ -29,13 +29,13 @@ import torch
 import torch.sparse
 from torch.autograd import Variable
 import echotorch.utils
-# from echotorch.viz import Observable
+from echotorch.utils.visualisation import Observable
 from ..Node import Node
 
 
 # Echo State Network layer
 # Basis cell for ESN.
-class ESNCell(Node):
+class ESNCell(Node, Observable):
     """
     Echo State Network layer
     Basis cell for ESN
@@ -69,7 +69,7 @@ class ESNCell(Node):
         )
 
         # Init. Observable super-class
-        # Observable.__init__(self)
+        Observable.__init__(self)
 
         # Params
         self._input_scaling = input_scaling

@@ -595,8 +595,8 @@ class Test_Memory_Management(EchoTorchTestCase):
 
             # Print results ?
             if print_debug:
-                print("NRMSE aligned : {}".format(NRMSE_aligned / value_test_divider))
-                print("Expected NRMSE : {}".format(expected_NRMSEs[p] / value_test_divider))
+                print(("NRMSE aligned : {}".format(NRMSE_aligned / value_test_divider)))
+                print(("Expected NRMSE : {}".format(expected_NRMSEs[p] / value_test_divider)))
             # end if
 
             # Check NRMSE
@@ -620,7 +620,7 @@ class Test_Memory_Management(EchoTorchTestCase):
         # if in debug mode
         if print_debug:
             print("Aligned NRMSEs")
-            print(",\n".join(NRMSEs_aligned))
+            print((",\n".join(NRMSEs_aligned)))
         # end if
     # end memory_management
 

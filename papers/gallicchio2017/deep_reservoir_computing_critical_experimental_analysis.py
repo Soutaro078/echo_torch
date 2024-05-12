@@ -160,20 +160,20 @@ for batch_idx, data in enumerate(random_symbols_loader):
 
     # Perturbation effect
     P = perturbation_effect(states_distances[:, perturbation_position:])
-    print("Layer perturbation durations : {}".format(P))
+    print(("Layer perturbation durations : {}".format(P)))
 
     # Compute ranking
     layer_ranking = ranking_of_layers(P)
-    print("Layer ranking : {}".format(layer_ranking))
+    print(("Layer ranking : {}".format(layer_ranking)))
 
     # Compute Kendall's tau
-    print("Kendall's tau : {}".format(kendalls_tau(ranking=layer_ranking)))
+    print(("Kendall's tau : {}".format(kendalls_tau(ranking=layer_ranking))))
 
     # Compute Spearman's rule
-    print("Spearman's rule : {}".format(spearmans_rule(ranking=layer_ranking)))
+    print(("Spearman's rule : {}".format(spearmans_rule(ranking=layer_ranking))))
 
     # Compute timescales separation
-    print("Timescales separation : {}".format(timescales_separation(P)))
+    print(("Timescales separation : {}".format(timescales_separation(P))))
 # end for
 
 

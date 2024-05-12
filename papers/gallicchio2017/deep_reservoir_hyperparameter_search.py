@@ -138,7 +138,7 @@ def print_population(fitness_evaluation):
     :return:
     """
     for params, fitness_value, _ in fitness_evaluation:
-        print("Params : {}, with fitness value : {}".format(params, fitness_value))
+        print(("Params : {}, with fitness value : {}".format(params, fitness_value)))
     # end for
     print("")
 # end print_population
@@ -218,5 +218,5 @@ _, best_param, best_measure = genetic_optimizer.optimize(
 )
 
 # Show the result
-print("Best hyper-parameters found : {}".format(best_param))
-print("Best {} : {}".format(fitness_measure, best_measure))
+print(("Best hyper-parameters found : {}".format(best_param)))
+print(("Best {} : {}".format(fitness_measure, best_measure)))

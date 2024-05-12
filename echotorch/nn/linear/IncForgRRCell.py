@@ -28,11 +28,10 @@ Created on 5 November 2019
 import torch.sparse
 import torch
 from torch.autograd import Variable
-
-# EchoTorch imports
-import echotorch.nn.conceptors.Conceptor as Conceptor
-from echotorch.nn.linear.IncRRCell import IncRRCell
-from echotorch.utils import nrmse, quota, rank
+from ..conceptors import Conceptor
+from .IncRRCell import IncRRCell
+from echotorch.utils import nrmse
+from echotorch.utils import quota, rank
 
 
 # Incremental Ridge Regression node

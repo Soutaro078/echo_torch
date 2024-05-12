@@ -14,5 +14,5 @@ log_map_dataset = DataLoader(log_map, batch_size=10, shuffle=True)
 
 # For each sample
 for data in log_map_dataset:
-    print(data[0])
+    print((data[0]))
 # end for

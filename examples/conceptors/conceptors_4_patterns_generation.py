@@ -143,7 +143,7 @@ for i, data in enumerate(patterns_loader):
     inputs, outputs, labels = data
 
     # Show timeseries
-    echotorch.utils.show_1d_timeseries(ts=inputs[0], title=u"p{}".format(i+1), xmin=0, xmax=20, ymin=-1, ymax=1, timesteps=21)
+    echotorch.utils.show_1d_timeseries(ts=inputs[0], title="p{}".format(i+1), xmin=0, xmax=20, ymin=-1, ymax=1, timesteps=21)
 
     # Compute hidden states
     hidden_states = esn(u=inputs.view(1, -1, 1).double(), y=inputs.view(1, -1, 1).double(), c=pattern_conceptors[i])
@@ -155,7 +155,7 @@ for i, data in enumerate(patterns_loader):
     echotorch.utils.neurons_activities_1d(
         stats=hidden_states[0],
         neurons=torch.LongTensor([0, 50, 99]),
-        title=u"Random neurons activities of p{}".format(i+1),
+        title="Random neurons activities of p{}".format(i+1),
         colors=['r', 'g', 'b'],
         xmin=0,
         xmax=20,
@@ -165,10 +165,10 @@ for i, data in enumerate(patterns_loader):
     )
 
     # Show log10 PC energy
-    echotorch.utils.plot_singular_values(stats=hidden_states[0], title=u"Log10 PC energy (p{})".format(i+1), log=True, xmin=0, xmax=100, ymin=-20, ymax=10)
+    echotorch.utils.plot_singular_values(stats=hidden_states[0], title="Log10 PC energy (p{})".format(i+1), log=True, xmin=0, xmax=100, ymin=-20, ymax=10)
 
     # Show leading PC energy
-    S, U = echotorch.utils.plot_singular_values(stats=hidden_states[0], title=u"Leading PC energy (p{})".format(i+1), xmin=0, xmax=10, ymin=0, ymax=40)
+    S, U = echotorch.utils.plot_singular_values(stats=hidden_states[0], title="Leading PC energy (p{})".format(i+1), xmin=0, xmax=10, ymin=0, ymax=40)
 
     # Save SVD
     svd_matrices.append((S, U))
@@ -176,7 +176,7 @@ for i, data in enumerate(patterns_loader):
 
 # Compute similarity matrix
 sim_matrix = echotorch.utils.compute_similarity_matrix(svd_matrices)
-echotorch.utils.show_similarity_matrix(sim_matrix, u"R-based similarities")
+echotorch.utils.show_similarity_matrix(sim_matrix, "R-based similarities")
 
 # Close the conceptor net
 esn.finalize()
@@ -187,7 +187,7 @@ for i in range(4):
 # end for
 
 # Show similarities between conceptors
-echotorch.utils.show_conceptors_similarity_matrix(pattern_conceptors, u"C-based similarities (a = {})".format(aperture))
+echotorch.utils.show_conceptors_similarity_matrix(pattern_conceptors, "C-based similarities (a = {})".format(aperture))
 
 # For each patterns
 for i, p in enumerate(patterns):
@@ -196,7 +196,7 @@ for i, p in enumerate(patterns):
 
     # Legends
     legends = list()
-    legends.append(u"Pattern {}".format(i+1))
+    legends.append("Pattern {}".format(i+1))
 
     # Aperture
     a = aperture
@@ -216,7 +216,7 @@ for i, p in enumerate(patterns):
         plt.plot(y_hat[0, washout_period+phase_shift:washout_period+phase_shift + 40].numpy())
 
         # Legend
-        legends.append(u"a = {} ({})".format(a, nrmse))
+        legends.append("a = {} ({})".format(a, nrmse))
 
         # Multiply aperture
         pattern_conceptors[i].multiply_aperture(factor)
@@ -224,7 +224,7 @@ for i, p in enumerate(patterns):
     # end for
 
     plt.legend(legends, loc='upper right')
-    plt.title(u"Regeneration of pattern {}".format(i+1))
+    plt.title("Regeneration of pattern {}".format(i+1))
     plt.show()
     plt.close()
 # end for

@@ -64,7 +64,7 @@ class GridSearchOptimizer(Optimizer):
         comb_count = 1.0
 
         # For each item
-        for key, value in param_ranges.items():
+        for key, value in list(param_ranges.items()):
             if type(value) is list:
                 output_dictionary[key] = value
             elif type(value) is int:
@@ -103,7 +103,7 @@ class GridSearchOptimizer(Optimizer):
 
         # Population of parameter values
         parameter_population = (
-            dict(zip(param_ranges_list.keys(), values)) for values in product(*param_ranges_list.values())
+            dict(list(zip(list(param_ranges_list.keys()), values))) for values in product(*list(param_ranges_list.values()))
         )
 
         # Save fitness values

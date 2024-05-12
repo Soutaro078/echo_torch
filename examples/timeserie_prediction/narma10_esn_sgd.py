@@ -100,19 +100,19 @@ for epoch in range(n_iterations):
         optimizer.step()
 
         # Print error measures
-        print(u"Train MSE: {}".format(float(loss.data)))
-        print(u"Train NRMSE: {}".format(echotorch.utils.nrmse(out.data, targets.data)))
+        print(("Train MSE: {}".format(float(loss.data))))
+        print(("Train NRMSE: {}".format(echotorch.utils.nrmse(out.data, targets.data))))
     # end for
 
     # Test reservoir
     dataiter = iter(testloader)
-    test_u, test_y = dataiter.next()
+    test_u, test_y = next(dataiter)
     test_u, test_y = Variable(test_u), Variable(test_y)
     if use_cuda: test_u, test_y = test_u.cuda(), test_y.cuda()
     y_predicted = esn(test_u)
 
     # Print error measures
-    print(u"Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data)))
-    print(u"Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data)))
-    print(u"")
+    print(("Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data))))
+    print(("Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data))))
+    print("")
 # end for

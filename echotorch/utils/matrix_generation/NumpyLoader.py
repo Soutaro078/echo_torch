@@ -69,7 +69,7 @@ class NumpyLoader(MatrixGenerator):
         m = np.load(file_name)
 
         # Reshape
-        if 'shape' in self._parameters.keys():
+        if 'shape' in list(self._parameters.keys()):
             m = np.reshape(m, self.get_parameter('shape'))
         # end if
 

@@ -22,7 +22,7 @@
 # Imports
 import echotorch.nn.conceptors as ecnc
 import echotorch.utils.matrix_generation as mg
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 import argparse
 import torch
 import matplotlib.pyplot as plt
@@ -44,7 +44,7 @@ reservoir_size = 2
 # endregion PARAMS
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog=u"Boolean operations", description="Boolean operation demo")
+parser = argparse.ArgumentParser(prog="Boolean operations", description="Boolean operation demo")
 parser.add_argument("--x", type=str, default="", required=False)
 parser.add_argument("--x-name", type=str, default="", required=False)
 parser.add_argument("--y", type=str, default="", required=False)
@@ -160,11 +160,11 @@ B.set_C(torch.mm(torch.mm(Ub, torch.diag(Sb)), Vb), aperture=1)
 AandB = ecnc.Conceptor.operator_AND(A, B)
 AorB = ecnc.Conceptor.operator_OR(A, B)
 notA = ecnc.Conceptor.operator_NOT(A)
-print(A.conceptor_matrix())
-print(B.conceptor_matrix())
-print(AandB.conceptor_matrix())
-print(AorB.conceptor_matrix())
-print(notA.conceptor_matrix())
+print((A.conceptor_matrix()))
+print((B.conceptor_matrix()))
+print((AandB.conceptor_matrix()))
+print((AorB.conceptor_matrix()))
+print((notA.conceptor_matrix()))
 # endregion BOOLEAN_OPERATIONS
 
 # region PLOTS

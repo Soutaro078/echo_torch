@@ -31,25 +31,24 @@ class Normalize(Transformer):
     """
 
     # Constructor
-    def __init__(self, input_dim, mu=None, std=None, dummy_zero_std=1.0, dtype=torch.float64):
+    def __init__(self, input_dim, mu, std, dtype=torch.float64):
         """
         Constructor
         """
         # Super constructor
         super(Normalize, self).__init__(
             input_dim=input_dim,
-            output_dim=input_dim,
-            dtype=dtype
+            output_dim=input_dim
         )
 
         # Properties
         self._mu = mu
         self._std = std
         self._input_dim = input_dim
-        self._dummy_zero_std = dummy_zero_std
+        self._dtype = dtype
     # end __init__
 
-    # region PROPERTIES
+    #region PROPERTIES
 
     # Dimension of the input timeseries
     @property
@@ -81,27 +80,9 @@ class Normalize(Transformer):
         return self._dtype
     # end output_dim
 
-    # Mean
-    @property
-    def mean(self):
-        """
-        Mean
-        """
-        return self._mu
-    # end mean
+    #endregion PROPERTIES
 
-    # Standard deviation
-    @property
-    def std(self):
-        """
-        Stanard deviation
-        """
-        return self._std
-    # end std
-
-    # endregion PROPERTIES
-
-    # region PRIVATE
+    #region PRIVATE
 
     # Transform
     def _transform(self, x):
@@ -110,33 +91,17 @@ class Normalize(Transformer):
         :param x:
         :return:
         """
-        # Mean
-        if self._mu is None:
-            x -= torch.mean(x, dim=0)
-        else:
-            x -= self._mu
-        # end if
-
-        # Standard deviation
-        if self._std is None:
-            x_std = torch.std(x, dim=0)
-            x_std[x_std == 0] = self._dummy_zero_std
-            x /= x_std
-        else:
-            x /= self._std
-        # end if
-
-        return x
+        return (x - self._mu) / self._std
     # end _transform
 
-    # endregion PRIVATE
+    #endregion PRIVATE
 
-    # region OVERRIDE
+    #region OVERRIDE
 
-    # endregion OVERRIDE
+    #endregion OVERRIDE
 
-    # region STATIC
+    #region STATIC
 
-    # endregion STATIC
+    #endregion STATIC
 
 # end Normalize

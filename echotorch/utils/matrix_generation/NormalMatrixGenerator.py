@@ -34,8 +34,6 @@ class NormalMatrixGenerator(MatrixGenerator):
     Generate matrix it normally distributed weights.
     """
 
-    # region CONSTRUCTORS
-
     # Constructor
     def __init__(self, **kwargs):
         """
@@ -57,9 +55,7 @@ class NormalMatrixGenerator(MatrixGenerator):
         self._set_parameters(args=kwargs)
     # end __init__
 
-    # endregion CONSTRUCTORS
-
-    # region PRIVATE
+    #region PRIVATE
 
     # Generate the matrix
     def _generate_matrix(self, size, dtype=torch.float64):
@@ -105,7 +101,7 @@ class NormalMatrixGenerator(MatrixGenerator):
         return w
     # end _generate_matrix
 
-    # endregion PRIVATE
+    #enregion PRIVATE
 
 # end NormalMatrixGenerator
 

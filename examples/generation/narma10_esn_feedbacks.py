@@ -90,14 +90,14 @@ esn.finalize()
 
 # Test MSE
 dataiter = iter(testloader)
-test_u, test_y = dataiter.next()
+test_u, test_y = next(dataiter)
 test_u, test_y = Variable(test_u), Variable(test_y)
 gen_u = Variable(torch.zeros(batch_size, test_sample_length, input_dim))
 if use_cuda: test_u, test_y, gen_u = test_u.cuda(), test_y.cuda(), gen_u.cuda()
 y_predicted = esn(test_u)
-print(u"Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data)))
-print(u"Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data)))
-print(u"")
+print(("Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data))))
+print(("Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data))))
+print("")
 
 y_generated = esn(gen_u)
 print(y_generated)

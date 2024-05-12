@@ -47,7 +47,7 @@ class Optimizer(object):
         self._hooks = dict()
 
         # Set parameter values given
-        for key, value in kwargs.items():
+        for key, value in list(kwargs.items()):
             self._parameters[key] = value
         # end for
     # end __init__
@@ -159,7 +159,7 @@ class Optimizer(object):
         # Check hook exists
         if hook_name in self.hooks_list:
             # Check that function are registrered
-            if hook_name in self._hooks.keys():
+            if hook_name in list(self._hooks.keys()):
                 # Get function
                 hook_funcs = self._hooks[hook_name]
 
@@ -252,7 +252,7 @@ class Optimizer(object):
         Set parameters
         :param args: Parameters as dict
         """
-        for key, value in args.items():
+        for key, value in list(args.items()):
             self.set_parameter(key, value)
         # end for
     # end _set_parameters

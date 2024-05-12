@@ -133,7 +133,7 @@ esn.finalize()
 # Get the first sample in training set,
 # and transform it to Variable.
 dataiter = iter(trainloader)
-train_u, train_y = dataiter.next()
+train_u, train_y = next(dataiter)
 train_u, train_y = Variable(train_u), Variable(train_y)
 if use_cuda: train_u, train_y = train_u.cuda(), train_y.cuda()
 
@@ -141,14 +141,14 @@ if use_cuda: train_u, train_y = train_u.cuda(), train_y.cuda()
 y_predicted = esn(train_u)
 
 # Print training MSE and NRMSE
-print(u"Train MSE: {}".format(echotorch.utils.mse(y_predicted.data, train_y.data)))
-print(u"Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, train_y.data)))
-print(u"")
+print(("Train MSE: {}".format(echotorch.utils.mse(y_predicted.data, train_y.data))))
+print(("Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, train_y.data))))
+print("")
 
 # Get the first sample in test set,
 # and transform it to Variable.
 dataiter = iter(testloader)
-test_u, test_y = dataiter.next()
+test_u, test_y = next(dataiter)
 test_u, test_y = Variable(test_u), Variable(test_y)
 if use_cuda: test_u, test_y = test_u.cuda(), test_y.cuda()
 
@@ -156,9 +156,9 @@ if use_cuda: test_u, test_y = test_u.cuda(), test_y.cuda()
 y_predicted = esn(test_u)
 
 # Print test MSE and NRMSE
-print(u"Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data)))
-print(u"Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data)))
-print(u"")
+print(("Test MSE: {}".format(echotorch.utils.mse(y_predicted.data, test_y.data))))
+print(("Test NRMSE: {}".format(echotorch.utils.nrmse(y_predicted.data, test_y.data))))
+print("")
 
 # Show target and predicted
 plt.plot(test_y[0, :plot_length, 0].data, 'r')

@@ -29,7 +29,7 @@ import echotorch.utils.matrix_generation as mg
 import argparse
 import echotorch.utils
 import echotorch.datasets as etds
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 from echotorch.datasets import DatasetComposer
 from echotorch.nn.Node import Node
 from torch.utils.data.dataloader import DataLoader
@@ -79,7 +79,7 @@ alpha = 10
 gamma = 10.0
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog="subspace_demo", description=u"Fig. 1 BC subspace first demo")
+parser = argparse.ArgumentParser(prog="subspace_demo", description="Fig. 1 BC subspace first demo")
 parser.add_argument("--w", type=str, default="", required=False)
 parser.add_argument("--w-name", type=str, default="", required=False)
 parser.add_argument("--win", type=str, default="", required=False)
@@ -261,7 +261,7 @@ predY = torch.mm(conceptor_net.cell.w, Xold_collector.t()).t()
 
 # Compute NRMSE
 training_NRMSE = echotorch.utils.nrmse(predY, Y_collector)
-print("Training NRMSE : {}".format(training_NRMSE))
+print(("Training NRMSE : {}".format(training_NRMSE)))
 
 # Conceptors OFF
 conceptor_net.conceptor_active(False)
@@ -348,17 +348,17 @@ for i in range(n_plots):
             morphing_vectors=mixture_vector
         )
         if i == 0 and j == 0:
-            print("{} {}".format(i, j))
-            print(generated_sample[0])
+            print(("{} {}".format(i, j)))
+            print((generated_sample[0]))
         elif i == 8 and j == 0:
-            print("{} {}".format(i, j))
-            print(generated_sample[0])
+            print(("{} {}".format(i, j)))
+            print((generated_sample[0]))
         elif i == 0 and j == 8:
-            print("{} {}".format(i, j))
-            print(generated_sample[0])
+            print(("{} {}".format(i, j)))
+            print((generated_sample[0]))
         elif i == 8 and j == 8:
-            print("{} {}".format(i, j))
-            print(generated_sample[0])
+            print(("{} {}".format(i, j)))
+            print((generated_sample[0]))
         # end if
         # Save outputs
         plots[i, j] = generated_sample[0, :, 0]

@@ -25,9 +25,7 @@ Created on 4 November 2019
 """
 
 # Imports
-from __future__ import annotations
 import torch
-from typing import Union, List
 from torch.autograd import Variable
 import math
 from ..NeuralFilter import NeuralFilter
@@ -481,12 +479,7 @@ class Conceptor(NeuralFilter):
     # end NOT_
 
     # Similarity
-    def sim(
-            self,
-            other: Union[Conceptor, List[Conceptor]],
-            based_on='C',
-            sim_func=generalized_squared_cosine
-    ) -> Union[float, torch.Tensor]:
+    def sim(self, other, based_on='C', sim_func=generalized_squared_cosine):
         """
         Generalized Cosine Similarity
         :param other: Second operand
@@ -494,15 +487,7 @@ class Conceptor(NeuralFilter):
         :param sim_func: Similarity function (default: generalized_squared_cosine)
         :return: Similarity between self and other ([0, 1])
         """
-        if isinstance(other, Conceptor):
-            return Conceptor.similarity(self, other, based_on, sim_func)
-        elif isinstance(other, list):
-            sim_vector = torch.zeros(len(other))
-            for other_i, other_c in enumerate(other):
-                sim_vector[other_i] = Conceptor.similarity(self, other_c, based_on, sim_func)
-            # end for
-            return sim_vector
-        # end if
+        return Conceptor.similarity(self, other, based_on, sim_func)
     # end sim
 
     # Delta measure (sensibility of Frobenius norm to change of aperture)
@@ -536,14 +521,6 @@ class Conceptor(NeuralFilter):
         new_C.set_C(self.C, self.aperture, compute_R=False)
         return new_C
     # end copy
-
-    # Make a copy of the conceptor
-    def clone(self):
-        """
-        Make a copy of the Conceptor
-        """
-        return self.copy()
-    # end clone
 
     # endregion PUBLIC
 
@@ -838,10 +815,6 @@ class Conceptor(NeuralFilter):
         if torch.all(torch.eq(C, torch.eye(C_dim, dtype=C.dtype))):
             return None
         else:
-            targetC = torch.eye(C_dim) - C
-            # print("I - C: {}".format(targetC))
-            U, S, V = torch.svd(targetC)
-            # print("U of target: {}".format(U))
             return math.pow(aperture, -2) * torch.mm(C, inv_algo(torch.eye(C_dim) - C))
         # end if
     # end R

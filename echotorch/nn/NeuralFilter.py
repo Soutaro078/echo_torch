@@ -19,7 +19,15 @@
 #
 # Copyright Nils Schaetti <nils.schaetti@unine.ch>
 
-# Imports
+"""
+Created on 25 November 2019
+@author: Nils Schaetti
+"""
+
+import torch
+import torch.sparse
+import torch.nn as nn
+import numpy as np
 from .Node import Node
 
 

@@ -216,4 +216,4 @@ with tqdm(total=test_size) as pbar:
 # end with
 
 # Show accuracy
-print("Error rate : {}".format(100.0 - (true_positives / float(test_size) * 100.0)))
+print(("Error rate : {}".format(100.0 - (true_positives / float(test_size) * 100.0))))

@@ -22,7 +22,7 @@ def nrmse(outputs, targets):
 
     # Check dim
     if outputs.size() != targets.size():
-        raise ValueError(u"Ouputs and targets tensors don have the same number of elements")
+        raise ValueError("Ouputs and targets tensors don have the same number of elements")
     # end if
 
     # Normalization with N-1
@@ -50,7 +50,7 @@ def rmse(outputs, targets):
 
     # Check dim
     if outputs.size() != targets.size():
-        raise ValueError(u"Ouputs and targets tensors don have the same number of elements")
+        raise ValueError("Ouputs and targets tensors don have the same number of elements")
     # end if
 
     # Error
@@ -75,7 +75,7 @@ def mse(outputs, targets):
 
     # Check dim
     if outputs.size() != targets.size():
-        raise ValueError(u"Ouputs and targets tensors don have the same number of elements")
+        raise ValueError("Ouputs and targets tensors don have the same number of elements")
     # end if
 
     # Error
@@ -100,7 +100,7 @@ def nmse(outputs, targets):
 
     # Check dim
     if outputs.size() != targets.size():
-        raise ValueError(u"Ouputs and targets tensors don have the same number of elements")
+        raise ValueError("Ouputs and targets tensors don have the same number of elements")
     # end if
 
     # Normalization with N-1

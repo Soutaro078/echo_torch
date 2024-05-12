@@ -149,7 +149,7 @@ class PCACell(nn.Module):
 
         # We need more observations than variables
         if self.tlen < self.input_dim:
-            raise Exception(u"The number of observations ({}) is larger than  the number of input variables ({})".format(self.tlen, self.input_dim))
+            raise Exception("The number of observations ({}) is larger than  the number of input variables ({})".format(self.tlen, self.input_dim))
         # end if
 
         # Total variance
@@ -165,7 +165,7 @@ class PCACell(nn.Module):
         # end if
 
         # Indexes
-        indexes = range(d.size(0)-1, -1, -1)
+        indexes = list(range(d.size(0)-1, -1, -1))
 
         # Sort by descending order
         d = torch.take(d, Variable(torch.LongTensor(indexes)))
@@ -262,7 +262,7 @@ class PCACell(nn.Module):
         # end if
 
         if n > self.output_dim:
-            raise Exception(u"y has dimension {} but should but at most {}".format(n, self.output_dim))
+            raise Exception("y has dimension {} but should but at most {}".format(n, self.output_dim))
         # end if
 
         # Get reconstruction matrix
