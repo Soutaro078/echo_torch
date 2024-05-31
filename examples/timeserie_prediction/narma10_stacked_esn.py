@@ -73,6 +73,6 @@ for data in trainloader:
     # Accumulate xTx and xTy
     hidden_states = esn(inputs, targets)
     for i in range(10):
-        print(hidden_states[0, i])
+        print((hidden_states[0, i]))
     # end if
 # end for

@@ -126,7 +126,7 @@ class Test_Hyperparameters_Optimization(EchoTorchTestCase):
             # Get the first sample in test set,
             # and transform it to Variable.
             dataiter = iter(testloader)
-            test_u, test_y = dataiter.next()
+            test_u, test_y = next(dataiter)
             test_u, test_y = Variable(test_u), Variable(test_y)
 
             # Make a prediction with our trained ESN
@@ -195,8 +195,8 @@ class Test_Hyperparameters_Optimization(EchoTorchTestCase):
 
         # Show the result
         if debug:
-            print("Best hyper-parameters found : {}".format(best_param))
-            print("Best NRMSE : {}".format(best_NRMSE))
+            print(("Best hyper-parameters found : {}".format(best_param)))
+            print(("Best NRMSE : {}".format(best_NRMSE)))
         # end if
 
         # Test the NRMSE found with optimization
@@ -255,8 +255,8 @@ class Test_Hyperparameters_Optimization(EchoTorchTestCase):
 
         # Show the result
         if debug:
-            print("Best hyper-parameters found : {}".format(best_param))
-            print("Best NRMSE : {}".format(best_NRMSE))
+            print(("Best hyper-parameters found : {}".format(best_param)))
+            print(("Best NRMSE : {}".format(best_NRMSE)))
         # end if
 
         # Test the NRMSE of the ESN found with optimization
@@ -316,8 +316,8 @@ class Test_Hyperparameters_Optimization(EchoTorchTestCase):
 
         # Show the result
         if debug:
-            print("Best hyper-parameters found : {}".format(best_param))
-            print("Best NRMSE : {}".format(best_NRMSE))
+            print(("Best hyper-parameters found : {}".format(best_param)))
+            print(("Best NRMSE : {}".format(best_NRMSE)))
         # end if
 
         # Test the NRMSE of the ESN found with optimization

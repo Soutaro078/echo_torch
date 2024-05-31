@@ -24,10 +24,13 @@ Created on 26 January 2018
 @author: Nils Schaetti
 """
 
-# EchoTorch imports
-from echotorch.models.reservoir.ESN import ESN
-from echotorch.nn.conceptors.ConceptorNet import ConceptorNet
-from echotorch.models.conceptors.IncSPESN import IncSPESN
+# Imports
+import torch
+from .. import Node
+from ..linear import IncRRCell
+from ..reservoir import ESN
+from .ConceptorNet import ConceptorNet
+from .IncSPESN import IncSPESN
 
 
 # Incremental learning-based Conceptor Network

@@ -144,7 +144,7 @@ z = z.unsqueeze(0)
 
 # Training
 y = sfa_node(z)
-print(y.size())
+print((y.size()))
 # Show components from home made SFA
 plt.title("Components from SFA cell")
 plt.plot(ts[:plot_points], y[0, :plot_points, 0].numpy(), color='r')

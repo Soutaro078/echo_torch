@@ -66,5 +66,5 @@ _, best_param, best_NRMSE = genetic_optimizer.optimize(
 )
 
 # Show the result
-print("Best hyper-parameters found : {}".format(best_param))
-print("Best NRMSE : {}".format(best_NRMSE))
+print(("Best hyper-parameters found : {}".format(best_param)))
+print(("Best NRMSE : {}".format(best_NRMSE)))

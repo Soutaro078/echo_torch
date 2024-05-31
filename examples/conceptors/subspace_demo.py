@@ -26,7 +26,7 @@ import echotorch.nn.conceptors as ecnc
 import echotorch.utils.matrix_generation as mg
 import argparse
 import echotorch.utils
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 from echotorch.datasets import DatasetComposer
 from torch.utils.data.dataloader import DataLoader
 import matplotlib.pyplot as plt
@@ -73,7 +73,7 @@ alpha = 10
 gamma = 10.0
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog="subspace_demo", description=u"Fig. 1 BC subspace first demo")
+parser = argparse.ArgumentParser(prog="subspace_demo", description="Fig. 1 BC subspace first demo")
 parser.add_argument("--w", type=str, default="", required=False)
 parser.add_argument("--w-name", type=str, default="", required=False)
 parser.add_argument("--win", type=str, default="", required=False)
@@ -223,7 +223,7 @@ predY = torch.mm(conceptor_net.cell.w, Xold_collector.t()).t()
 # Compute NRMSE
 if loading_method == ecnc.SPESNCell.W_LOADING:
     training_NRMSE = echotorch.utils.nrmse(predY, Y_collector)
-    print("Training NRMSE : {}".format(training_NRMSE))
+    print(("Training NRMSE : {}".format(training_NRMSE)))
 # end if
 
 # Conceptors OFF
@@ -361,8 +361,8 @@ for i in range(4):
 plt.show()
 
 # Show NRMSE
-print("NRMSEs aligned : {}".format(torch.mean(NRMSEs_aligned)))
-print(conceptors.similarity_matrix(based_on='R'))
+print(("NRMSEs aligned : {}".format(torch.mean(NRMSEs_aligned))))
+print((conceptors.similarity_matrix(based_on='R')))
 
 # Plot R similarity matrix
 ecvs.show_similarity_matrix(
@@ -371,8 +371,8 @@ ecvs.show_similarity_matrix(
 )
 
 # Print the similarity matrix
-print("C-based similarity matrix, aperture = {}".format(alpha))
-print(conceptors.similarity_matrix())
+print(("C-based similarity matrix, aperture = {}".format(alpha)))
+print((conceptors.similarity_matrix()))
 
 # Plot conceptors similarity matrix at aperture = 10.0
 ecvs.show_similarity_matrix(

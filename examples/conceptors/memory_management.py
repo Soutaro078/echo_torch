@@ -449,8 +449,8 @@ for p in range(n_patterns):
 # end for
 
 # Show the average NRMSE
-print(u"Average NRMSE : {}".format(torch.mean(NRMSEs_aligned)))
-print(u"Average NRMSE except last : {}".format(torch.mean(NRMSEs_aligned[:-1])))
+print(("Average NRMSE : {}".format(torch.mean(NRMSEs_aligned))))
+print(("Average NRMSE except last : {}".format(torch.mean(NRMSEs_aligned[:-1]))))
 print(NRMSEs_aligned)
 # endregion TEST
 
@@ -524,12 +524,12 @@ for p in range(n_patterns):
 
     # Title
     if p == 0:
-        plt.title(u'p and y')
+        plt.title('p and y')
     # end if
 
     # Title
     if p == 0:
-        plt.title(u'p and y')
+        plt.title('p and y')
     # end if
 
     # X labels

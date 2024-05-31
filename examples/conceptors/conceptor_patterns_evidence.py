@@ -27,7 +27,7 @@ import echotorch.utils.matrix_generation as mg
 import argparse
 import echotorch.utils
 import echotorch.datasets as etds
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 from echotorch.datasets import DatasetComposer
 from torch.utils.data.dataloader import DataLoader
 import matplotlib.pyplot as plt
@@ -63,7 +63,7 @@ alpha = 0.01
 gamma = 10.0
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog="subspace_demo", description=u"Fig. 1 BC subspace first demo")
+parser = argparse.ArgumentParser(prog="subspace_demo", description="Fig. 1 BC subspace first demo")
 parser.add_argument("--w", type=str, default="", required=False)
 parser.add_argument("--w-name", type=str, default="", required=False)
 parser.add_argument("--win", type=str, default="", required=False)
@@ -221,7 +221,7 @@ predY = torch.mm(conceptor_net.cell.w, Xold_collector.t()).t()
 
 # Compute NRMSE
 training_NRMSE = echotorch.utils.nrmse(predY, Y_collector)
-print("Training NRMSE : {}".format(training_NRMSE))
+print(("Training NRMSE : {}".format(training_NRMSE)))
 
 # Conceptors OFF
 conceptor_net.conceptor_active(False)
@@ -358,7 +358,7 @@ for i in range(4):
 plt.show()
 
 # Show NRMSE
-print("NRMSEs aligned : {}".format(torch.mean(NRMSEs_aligned)))
+print(("NRMSEs aligned : {}".format(torch.mean(NRMSEs_aligned))))
 
 # For each aperture (1.0, 10.0, 100.0, 1000.0, 10000.0)
 ca = 0.01

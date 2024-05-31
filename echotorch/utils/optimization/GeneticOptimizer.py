@@ -86,7 +86,7 @@ class GeneticOptimizer(Optimizer):
             individual = dict()
 
             # For each parameters
-            for param_name, param_range in param_ranges.items():
+            for param_name, param_range in list(param_ranges.items()):
                 # Get a random value for this param
                 individual[param_name] = param_range[random.randrange(len(param_range))]
             # end for
@@ -107,7 +107,7 @@ class GeneticOptimizer(Optimizer):
         :return: A new individual made from the crossover
         """
         # How many parameters there is
-        params = individual1.keys()
+        params = list(individual1.keys())
         n_params = len(params)
 
         # Generate a random position in the DNA
@@ -135,7 +135,7 @@ class GeneticOptimizer(Optimizer):
         :return: The mutated individual
         """
         # For each parameter
-        for param_name, param_range in parameter_ranges.items():
+        for param_name, param_range in list(parameter_ranges.items()):
             # Check probability
             if random.random() < mutation_prob:
                 individual[param_name] = param_range[random.randrange(len(param_range))]

@@ -82,7 +82,7 @@ class Aggregator(Transformer):
         """
         Registered entries
         """
-        return self._data.keys()
+        return list(self._data.keys())
     # end entries
 
     # Is initialized

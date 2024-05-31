@@ -27,7 +27,7 @@ import echotorch.utils.matrix_generation as mg
 import argparse
 import echotorch.utils
 import echotorch.datasets as etds
-import echotorch.visualisation as ecvs
+import echotorch.utils.visualisation as ecvs
 from echotorch.datasets import DatasetComposer
 from echotorch.nn.Node import Node
 from torch.utils.data.dataloader import DataLoader
@@ -87,7 +87,7 @@ alpha = 10
 gamma = 10.0
 
 # Argument parsing
-parser = argparse.ArgumentParser(prog="subspace_demo", description=u"Fig. 1 BC subspace first demo")
+parser = argparse.ArgumentParser(prog="subspace_demo", description="Fig. 1 BC subspace first demo")
 parser.add_argument("--w", type=str, default="", required=False)
 parser.add_argument("--w-name", type=str, default="", required=False)
 parser.add_argument("--win", type=str, default="", required=False)
@@ -287,7 +287,7 @@ predY = torch.mm(conceptor_net.cell.w, Xold_collector.t()).t()
 
 # Compute NRMSE
 training_NRMSE = echotorch.utils.nrmse(predY, Y_collector)
-print("Training NRMSE : {}".format(training_NRMSE))
+print(("Training NRMSE : {}".format(training_NRMSE)))
 
 # Conceptors OFF
 conceptor_net.conceptor_active(False)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# File : echotorch/nn/ESN.py
-# Description : An Echo State Network module.
-# Date : 26th of January, 2018
+# File : echotorch/models/__init__.py
+# Description : Models init.
+# Date : 09th of April, 2018
 #
 # This file is part of EchoTorch.  EchoTorch is free software: you can
 # redistribute it and/or modify it under the terms of the GNU General Public
@@ -20,6 +20,5 @@
 # Copyright Nils Schaetti, University of Neuchâtel <nils.schaetti@unine.ch>
 
 # Imports
-from . import conceptors
-from . import reservoir
-
+from .HNilsNet import HNilsNet
+from .NilsNet import NilsNet

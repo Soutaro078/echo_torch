@@ -20,15 +20,18 @@
 # Copyright Nils Schaetti <nils.schaetti@unine.ch>
 
 # Imports
+from .BDESN import BDESN
 from .BDESNCell import BDESNCell
 from .BDESNPCA import BDESNPCA
 from .DeepESN import DeepESN
 from .EESN import EESN
-from echotorch.models.reservoir.ESN import ESN
+from .ESN import ESN
 from .ESNCell import ESNCell
 from .GatedESN import GatedESN
 from .HESN import HESN
+from .LiESN import LiESN
 from .LiESNCell import LiESNCell
+from .StackedESN import StackedESN
 
 # All
 __all__ = [

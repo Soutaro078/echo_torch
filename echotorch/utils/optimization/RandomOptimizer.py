@@ -75,7 +75,7 @@ class RandomOptimizer(Optimizer):
             individual = dict()
 
             # For each parameters
-            for param_name, param_range in param_ranges.items():
+            for param_name, param_range in list(param_ranges.items()):
                 # Get a random value for this param
                 individual[param_name] = param_range[random.randrange(len(param_range))]
             # end for

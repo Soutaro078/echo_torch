@@ -109,11 +109,11 @@ for data in dataset_triplet_batching_sequence_loader:
     negative_class = negative_sample[2].item()
 
     # Print classes
-    print("Anchor: {}, Positive: {}, Negative: {}".format(
+    print(("Anchor: {}, Positive: {}, Negative: {}".format(
         anchor_class,
         positive_class,
         negative_class
-    ))
+    )))
 
     # Plot
     plt.figure()

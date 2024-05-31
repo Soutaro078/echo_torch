@@ -41,8 +41,8 @@ training_samples_np = training_samples[0].numpy()
 test_samples_np = test_samples[0].numpy()
 
 # Show
-print(u"Training samples : {}".format(training_samples_np))
-print(u"Test samples : {}".format(test_samples_np))
+print(("Training samples : {}".format(training_samples_np)))
+print(("Test samples : {}".format(test_samples_np)))
 
 # PCA node
 mdp_pca_node = mdp.Flow([mdp.nodes.PCANode(input_dim=input_dim, output_dim=output_dim)])
@@ -50,7 +50,7 @@ mdp_pca_node.train(training_samples_np)
 pca_reduced = mdp_pca_node(test_samples_np)
 
 # Show
-print(u"PCA reduced : {}".format(pca_reduced))
+print(("PCA reduced : {}".format(pca_reduced)))
 
 # EchoTorch PCA node
 et_pca_node = etnn.PCACell(input_dim=input_dim, output_dim=output_dim)
@@ -59,5 +59,5 @@ et_pca_node.finalize()
 et_reduced = et_pca_node(Variable(test_samples))
 
 # Show
-print(u"Reduced with EchoTorch/PCA :")
+print("Reduced with EchoTorch/PCA :")
 print(et_reduced)

@@ -33,28 +33,6 @@ class StatsAggregator(Aggregator):
     An aggregator which compute the basic statistics about time series
     """
 
-    # region PROPERTIES
-
-    # Get data
-    @property
-    def data(self):
-        """
-        Get data
-        """
-        return self._data
-    # end data
-
-    # Get counters
-    @property
-    def counters(self):
-        """
-        Get counters
-        """
-        return self._counters
-    # end counters
-
-    # endregion PROPERTIES
-
     # region PUBLIC
 
     # Get statistics
@@ -62,9 +40,6 @@ class StatsAggregator(Aggregator):
         """
         Get statistics
         """
-        print(stat_type)
-        print(self._data[stat_type])
-        print(self._counters[stat_type])
         return self._data[stat_type] / self._counters[stat_type]
     # end get_statistics
 
@@ -93,6 +68,8 @@ class StatsAggregator(Aggregator):
         self._register("mean", torch.zeros(self._input_dim))
         self._register("std", torch.zeros(self._input_dim))
         self._register("mean_length", 0)
+        self._register("max", torch.zeros(self._input_dim))
+        self._register("min", torch.zeros(self._input_dim))
         self._initialized = True
     # end _initialize
 
@@ -102,11 +79,12 @@ class StatsAggregator(Aggregator):
         Aggregate information
         :param x: Input tensor
         """
-        if torch.numel(x) > 0:
-            self._update_entry("mean", torch.mean(x[torch.isnan(x) == False], dim=0))
-            self._update_entry("std", torch.std(x[torch.isnan(x) == False], dim=0))
-            self._update_entry("mean_length", x.size(0))
-        # end if
+        # Mean, std, mean length, max, min
+        self._update_entry("mean", torch.mean(x, dim=0))
+        self._update_entry("std", torch.std(x, dim=0))
+        self._update_entry("mean_length", x.size(0))
+        self._update_entry("max", torch.max(x, dim=0)[0])
+        self._update_entry("min", torch.min(x, dim=0)[0])
     # end _aggregate
 
     # endregion OVERRIDE

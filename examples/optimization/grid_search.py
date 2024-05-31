@@ -24,7 +24,7 @@ import torch
 from echotorch.datasets.NARMADataset import NARMADataset
 import echotorch.utils.optimization as optim
 import numpy as np
-from narma_evaluation import evaluation_function
+from .narma_evaluation import evaluation_function
 
 # Length of training samples
 train_sample_length = 5000
@@ -66,5 +66,5 @@ _, best_param, best_NRMSE = random_optimizer.optimize(
 )
 
 # Show the result
-print("Best hyper-parameters found : {}".format(best_param))
-print("Best NRMSE : {}".format(best_NRMSE))
+print(("Best hyper-parameters found : {}".format(best_param)))
+print(("Best NRMSE : {}".format(best_NRMSE)))

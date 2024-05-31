@@ -110,11 +110,11 @@ repeat_task_loader = torch.utils.data.DataLoader(
 for data_i, data in enumerate(repeat_task_loader):
     # Inputs and output
     data_inputs, data_outputs = data
-    print(data_inputs.size())
-    print(data_outputs.size())
+    print((data_inputs.size()))
+    print((data_outputs.size()))
     # Print
-    print(np.array2string(data_inputs.numpy(), separator=', '))
-    print(np.array2string(data_outputs.numpy(), separator=', '))
+    print((np.array2string(data_inputs.numpy(), separator=', ')))
+    print((np.array2string(data_outputs.numpy(), separator=', ')))
 
     # Plot inputs and output
     """plt.plot(data_inputs[0].numpy(), 'b')

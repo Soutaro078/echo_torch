@@ -44,6 +44,6 @@ slow = flow(series)
 
 resc_dforce = (dforce - np.mean(dforce, 0)) / np.std(dforce, 0)
 
-print(u"{}".format(mdp.utils.cov2(resc_dforce[:-9], slow)))
-print(u"Eta value (time serie) : {}".format(flow[0].get_eta(t=10000)))
-print(u"Eta value (slow feature) : {}".format(flow[-1].get_eta(t=9996)))
+print(("{}".format(mdp.utils.cov2(resc_dforce[:-9], slow))))
+print(("Eta value (time serie) : {}".format(flow[0].get_eta(t=10000))))
+print(("Eta value (slow feature) : {}".format(flow[-1].get_eta(t=9996))))

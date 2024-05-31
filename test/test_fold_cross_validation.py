@@ -20,11 +20,14 @@
 # Copyright Nils Schaetti <nils.schaetti@unine.ch>
 
 # Imports
+import os
+import echotorch.utils
 from . import EchoTorchTestCase
 import numpy as np
 import torch
-import echotorch.utils.evaluation as val
+import echotorch.evaluation as val
 from torch.utils.data.dataloader import DataLoader
+from torch.autograd import Variable
 from .modules import DummyDataset
 
 

@@ -75,8 +75,8 @@ nilsnet = echotorch.models.NilsNet(reservoir_dim=1000, sfa_dim=100, ica_dim=100)
 
 # Get a batch of training data
 inputs, classes = next(iter(dataloaders['train']))
-print(inputs.size())
-print(classes.size())
+print((inputs.size()))
+print((classes.size()))
 
 inputs = Variable(inputs)
 classes = Variable(classes)
@@ -89,4 +89,4 @@ classes = Variable(classes)
 outputs = nilsnet(inputs)
 
 print(outputs)
-print(outputs.size())
+print((outputs.size()))

@@ -152,7 +152,7 @@ for batch_idx, data in enumerate(random_symbols_loader):
 
     # Perturbation effect
     P = perturbation_effect(states_distances[:, perturbation_position:])
-    print("Layer perturbation durations : {}".format(P.item()))
+    print(("Layer perturbation durations : {}".format(P.item())))
 # end for
 
 
