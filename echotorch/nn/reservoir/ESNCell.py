@@ -316,6 +316,8 @@ class ESNCell(Node, Observable):
         :param ut: Inputs
         :return: Processed inputs
         """
+        if self.w_in(1) != ut.size(0):
+            self.w_in = self.w_in[:,ut.size(0)]
         return self.w_in.mv(ut)
     # end _input_layer
 
