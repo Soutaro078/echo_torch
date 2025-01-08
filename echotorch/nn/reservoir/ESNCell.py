@@ -321,6 +321,16 @@ class ESNCell(Node, Observable):
         return self.w_in.mv(ut)
     # end _input_layer
 
+    # def _input_layer(self, ut):
+    #     """
+    #     Compute input layer
+    #     :param ut: Inputs
+    #     :return: Processed inputs
+    #     """
+    #     if self.w_in.size(1) != ut.size(0):
+    #         self.w_in = self.w_in[:, :ut.size(0)]
+    #     return self.w_in.mv(ut)
+
     # Init hidden layer
     def _init_hidden(self):
         """
