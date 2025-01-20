@@ -261,6 +261,7 @@ class ESN(Node):
         # return self._output(hidden_states, None)
 
         # Learning algo
+        # コードの変更
         if y is None or self._esn_cell.washout == 0:
             return self._output(hidden_states, None)
         else:
