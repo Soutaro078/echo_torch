@@ -261,10 +261,11 @@ class ESN(Node):
         # return self._output(hidden_states, None)
 
         # Learning algo
-        if not self.training:
+        if y is None or self._esn_cell.washout == 0:
             return self._output(hidden_states, None)
         else:
             return self._output(hidden_states, y[:, self._esn_cell.washout:])
+
         # end if
     # end forward
 
