@@ -263,7 +263,8 @@ class ESN(Node):
         # Learning algo
         # コードの変更
         if y is None or self._esn_cell.washout == 0:
-            return self._output(hidden_states, None)
+            dummy_y = torch.zeros(hidden_states.size(0), hidden_states.size(1), self._output.output_dim, device=hidden_states.device)
+            return self._output(hidden_states, dummy_y)
         else:
             return self._output(hidden_states, y[:, self._esn_cell.washout:])
 
